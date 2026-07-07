@@ -28,8 +28,12 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Playwright tests
-      run: npm test
+    - name: Run UI Tests
+      run: npm run test:ui:qa
+
+    - name: Run API Tests
+      run: npm run test:api:qa
+      
       env:
         ENV: qa
 

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "cross-env ENV=qa playwright test",
     "test:ui:qa": "cross-env ENV=qa playwright test tests/ui",
     "test:ui:staging": "cross-env ENV=staging playwright test tests/ui",
     "test:ui:prod": "cross-env ENV=prod playwright test tests/ui",
