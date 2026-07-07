@@ -1,8 +1,10 @@
 # Playwright Automation Framework
 
-A simple UI and API automation framework built using Playwright and TypeScript.
+A reusable UI and API automation framework built using **Playwright** and **TypeScript**.
 
-## Tech Stack
+---
+
+# Tech Stack
 
 - Playwright
 - TypeScript
@@ -13,18 +15,19 @@ A simple UI and API automation framework built using Playwright and TypeScript.
 
 ---
 
-## Features
+# Features
 
-### UI Automation
+## UI Automation
 
 - Page Object Model (POM)
-- Environment-based execution (QA, Staging, Prod)
+- Base Page implementation
+- Environment-based execution (QA, Staging and Production)
 - Login with valid credentials
 - Login with invalid credentials
 - HTML Report
 - Screenshot, Video and Trace on failure
 
-### API Automation
+## API Automation
 
 - Reusable API Client
 - GET Request
@@ -34,9 +37,9 @@ A simple UI and API automation framework built using Playwright and TypeScript.
 
 ---
 
-## Project Structure
+# Project Structure
 
-```
+```text
 playwright-framework
 │
 ├── pages
@@ -53,9 +56,47 @@ playwright-framework
 
 ---
 
-## Environment Configuration
+# Prerequisites
 
-Environment values are stored in `.env.local`.
+Before running the framework, install the following:
+
+- Node.js (v18 or above)
+- Git
+- Visual Studio Code (Optional)
+
+---
+
+# Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/KathirAR/interview-prep.git
+```
+
+Navigate to the project folder
+
+```bash
+cd interview-prep/playwright-framework
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Install Playwright browsers
+
+```bash
+npx playwright install
+```
+
+---
+
+# Environment Configuration
+
+Create a `.env.local` file in the project root.
 
 Example:
 
@@ -64,22 +105,44 @@ QA_BASE_URL=https://opensource-demo.orangehrmlive.com
 QA_USERNAME=Admin
 QA_PASSWORD=admin123
 
+STAGING_BASE_URL=https://staging-url.com
+STAGING_USERNAME=staging_user
+STAGING_PASSWORD=staging_password
+
+PROD_BASE_URL=https://prod-url.com
+PROD_USERNAME=prod_user
+PROD_PASSWORD=prod_password
+
 API_BASE_URL=https://jsonplaceholder.typicode.com
 ```
 
 ---
 
-## Running Tests
+# Running UI Tests
 
-### UI Tests
+Run UI tests in QA
 
 ```bash
 npm run test:ui:qa
+```
+
+Run UI tests in Staging
+
+```bash
 npm run test:ui:staging
+```
+
+Run UI tests in Production
+
+```bash
 npm run test:ui:prod
 ```
 
-### API Tests
+---
+
+# Running API Tests
+
+Run API tests in QA
 
 ```bash
 npm run test:api:qa
@@ -87,30 +150,34 @@ npm run test:api:qa
 
 ---
 
-## Test Scenarios
-
-### UI
-
-- Login with valid credentials
-- Login with invalid credentials
-
-### API
-
-- Get User Details
-- Create New User
-- Delete User
-
----
-
-## Reporting
-
-Generate the HTML report using:
+# View HTML Report
 
 ```bash
 npm run report
 ```
 
-The framework captures:
+---
+
+# UI Test Scenarios
+
+- Login with valid credentials
+- Login with invalid credentials
+
+---
+
+# API Test Scenarios
+
+| Test Case | HTTP Method | Endpoint |
+|-----------|-------------|----------|
+| Get User Details | GET | /users/1 |
+| Create New Post | POST | /posts |
+| Delete Post | DELETE | /posts/1 |
+
+---
+
+# Reporting
+
+The framework generates:
 
 - HTML Report
 - Screenshot on failure
@@ -119,20 +186,25 @@ The framework captures:
 
 ---
 
-## CI/CD
+# CI/CD
 
 GitHub Actions is configured to:
 
-- Install dependencies
-- Run Playwright tests
-- Upload HTML report
+- Checkout the repository
+- Install project dependencies
+- Install Playwright browsers
+- Execute UI tests
+- Execute API tests
+- Publish Playwright HTML Report
 
-The workflow runs automatically on every push to the repository.
+The workflow is triggered automatically on every Push and Pull Request.
 
 ---
 
-## Author
+# Author
 
 **Kathiresan AR**
 
-Senior Quality Engineer | Playwright | TypeScript
+Senior Quality Engineer
+
+Playwright | TypeScript | UI & API Automation
