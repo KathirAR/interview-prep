@@ -1,10 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
-import { resolve } from 'node:path';
+import { env } from './utils/env';
 
-// Load environment variables from .env.local or .env (if present)
-dotenv.config({ path: resolve(process.cwd(), '.env.local') });
-dotenv.config({ path: resolve(process.cwd(), '.env') });
+
 
 /**
  * Read environment variables from file.
@@ -40,7 +37,7 @@ expect: {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: process.env.BASE_URL || 'http://localhost:3000',
+    baseURL: env.baseURL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',

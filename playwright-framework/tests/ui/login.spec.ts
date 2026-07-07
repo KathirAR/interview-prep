@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage.js';
-import { DashboardPage } from '../pages/DashboardPage.js';
-
+import { env } from '../../utils/env.js';
+import { LoginPage } from '../../pages/LoginPage.js';
+import { DashboardPage } from '../../pages/DashboardPage.js';
 
 test.describe('OrangeHRM website Login scenario', () => {
 
@@ -17,21 +17,19 @@ test.describe('OrangeHRM website Login scenario', () => {
 
   test('Verify user should login successfully with valid credentials', async () => {
 
-    await loginPage.login(
-      process.env.USERNAME!,
-      process.env.PASSWORD!
-    );
+    await loginPage.login(env.username!, env.password!);
 
     await dashboardPage.verifyDashboardLoaded();
 
   });
 
-  test('should display error message for invalid credentials', async () => {
+  test('Verify user should be displayed error message for invalid credentials', async () => {
 
   await loginPage.login(
     'Admin',
     'WrongPassword'
   );
+
 
   await loginPage.verifyInvalidLogin();
 
