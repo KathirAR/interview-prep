@@ -31,9 +31,21 @@ jobs:
     - name: Run Playwright tests
       run: npm test
       env:
-        BASE_URL: ${{ secrets.BASE_URL }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PASSWORD: ${{ secrets.PASSWORD }}
+        ENV: qa
+
+        QA_BASE_URL: ${{ secrets.QA_BASE_URL }}
+        QA_USERNAME: ${{ secrets.QA_USERNAME }}
+        QA_PASSWORD: ${{ secrets.QA_PASSWORD }}
+
+        STAGING_BASE_URL: ${{ secrets.STAGING_BASE_URL }}
+        STAGING_USERNAME: ${{ secrets.STAGING_USERNAME }}
+        STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}
+
+        PROD_BASE_URL: ${{ secrets.PROD_BASE_URL }}
+        PROD_USERNAME: ${{ secrets.PROD_USERNAME }}
+        PROD_PASSWORD: ${{ secrets.PROD_PASSWORD }}
+
+        API_BASE_URL: ${{ secrets.API_BASE_URL }}
 
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
